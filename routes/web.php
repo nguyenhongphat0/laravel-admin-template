@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return redirect('login');
 });
+Route::get('change-language/{locale}', [LanguageController::class, 'change'])->name('language.change');
 
 Auth::routes();
 

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'dashboard'                     => 'Dashboard',
+    'dashboard'                     => '계기반',
     'main_navigation'               => 'MAIN NAVIGATION',
     'blog'                          => 'Blog',
     'pages'                         => 'Pages',
