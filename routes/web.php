@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\LanguageController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,4 +28,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin::', 'm
      * Requires authentication.
      */
     Route::get('/', [DashboardController::class, 'index'])->name('home');
+
+    Route::group(['prefix' => 'files'], function () {
+        Route::post('preview/{fileName?}', [FileController::class, 'preview'])->name('file.preview');
+        Route::post('upload/{type?}', [FileController::class, 'upload'])->name('file.upload');
+        Route::post('delete', [FileController::class, 'delete'])->name('file.delete');
+        Route::get('blob/{fileName?}', [FileController::class, 'blob'])->name('file.blob');
+    });
 });
