@@ -9,7 +9,6 @@
 @section('content')
 <p>Welcome to this beautiful admin panel.</p>
 <form action="">
-    {{app()->getLocale()}}
     @include('partials.fileinput', ['model' => 'upload_file', 'multiple' => true, 'value' => isset($_GET['upload_file']) ? $_GET['upload_file'] : ''])
     <x-adminlte-button label="Submit" type="submit" />
 </form>

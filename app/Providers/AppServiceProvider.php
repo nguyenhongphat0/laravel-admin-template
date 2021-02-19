@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Events\Dispatcher;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;
 
@@ -25,6 +26,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(Dispatcher $events)
     {
+        Schema::defaultStringLength(191);
         $events->listen(BuildingMenu::class, function (BuildingMenu $event) {
             // Add some items to the menu...
             $event->menu->add(
